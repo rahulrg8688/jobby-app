@@ -13,3 +13,11 @@
   width: 300px;
   margin: 10px;
 }
+.bg {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/no-jobs-img.png ');
+  background-size: cover;
+  height: 100vh;
+  width: 60vw;
+  text-align: center;
+  /* margin-top: 20%; */
+}
