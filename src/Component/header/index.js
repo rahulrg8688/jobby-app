@@ -12,7 +12,7 @@ const Header = props => {
   }
   return (
     <div className="Header_container">
-      <ul className="imageContainer">
+      <ul className="imageCont">
         <img
           src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
           alt="websiteLogo"
@@ -21,13 +21,13 @@ const Header = props => {
       </ul>
       <ul className="home_jobs_container">
         <Link to="/">
-          <h1>Home</h1>
+          <h1 className="HomeHeading">Home</h1>
         </Link>
         <Link to="/Jobs">
-          <h1>Jobs</h1>
+          <h1 className="homeJobsHeading">Jobs</h1>
         </Link>
       </ul>
-      <ul className="button">
+      <ul className="buttonE">
         <button className="buttonElement" onClick={LogOut} type="button">
           Logout
         </button>

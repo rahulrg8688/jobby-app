@@ -1,5 +1,18 @@
 .itemContainer {
-  background-color: black;
+  background-color: grey;
 
   color: white;
+  /* margin: 10px; */
+}
+div.itemContainer:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  transition: all 0.5s ease-in-out;
+  background-color: #b6c5ff;
+}
+div.itemContainer:visited {
+  color: green;
+}
+div.itemContainer:active {
+  color: yellow;
 }

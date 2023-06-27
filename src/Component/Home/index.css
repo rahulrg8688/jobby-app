@@ -1,0 +1,19 @@
+.HomeComponent {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  background-size: cover;
+  height: 100vh;
+  color: white;
+}
+.HomeCompoHeading {
+  padding: 20px;
+  font-size: 20px;
+}
+.HomeCompoHeading.h1 {
+  font-size: 50px;
+}
+.FindJobsButton {
+  height: 30px;
+  width: 130px;
+  background-color: #6366f1;
+  border-radius: 10px;
+}

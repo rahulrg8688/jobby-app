@@ -1,0 +1,13 @@
+.Cont {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding-left: 20rem; */
+  color: white;
+}
+.NotFoundImage {
+  height: 20rem;
+}

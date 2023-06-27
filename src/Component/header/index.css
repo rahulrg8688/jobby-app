@@ -2,6 +2,8 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  color: none;
+  text-decoration: none;
 }
 
 .Header_container {
@@ -11,7 +13,7 @@
   /* align-content: space-evenly; */
   /* align-items: center; */
 }
-.imageContainer {
+.imageCont {
   display: flex;
   justify-content: space-between;
   align-content: space-between;
@@ -29,10 +31,11 @@
   /* justify-content: center; */
   /* align-items: center; */
   justify-self: center;
-  margin-left: 15rem;
-  color: white;
+  margin-left: 19rem;
+  /* color: white; */
+  /* background-color: white; */
 }
-.button {
+.buttonE {
   text-align: center;
   margin-left: auto;
   margin-right: 5%;
@@ -44,4 +47,12 @@
   width: 60px;
   border-radius: 4px;
   color: white;
+}
+.HomeHeading {
+  margin: 20px;
+  color: white;
+}
+.homeJobsHeading {
+  color: white;
+  text-decoration: none;
 }

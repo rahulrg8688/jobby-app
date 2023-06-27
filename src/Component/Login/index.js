@@ -2,6 +2,8 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 
+import './index.css'
+
 class Login extends Component {
   state = {username: '', password: '', showSubmitError: false, errorMsg: ''}
 
@@ -57,29 +59,52 @@ class Login extends Component {
       console.log(`verified`)
     }
     return (
-      <form onSubmit={this.Submit}>
-        <ul>
-          <label htmlFor="name">username</label>
-          <input
-            type="name"
-            placeholder="username"
-            id="name"
-            value={username}
-            onChange={this.onChangeUsername}
-          />
-        </ul>
-        <ul>
-          <label htmlFor="password">password</label>
-          <input
-            type="password"
-            placeholder="password"
-            id="password"
-            value={password}
-            onChange={this.onChangePassword}
-          />
-        </ul>
-        <button type="submit">Login</button>
-      </form>
+      <div className="loginContainer">
+        <form onSubmit={this.Submit} className="Loginform">
+          <ul>
+            <ul className="imageContainer">
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/logo-img.png "
+                alt="websiteLogo"
+                className="WebsiteLogo"
+              />
+            </ul>
+            <ul className="UserContainer">
+              <ul>
+                <label htmlFor="name">USERNAME</label>
+              </ul>
+              <ul>
+                <input
+                  type="name"
+                  placeholder="username"
+                  id="name"
+                  className="inputElement"
+                  value={username}
+                  onChange={this.onChangeUsername}
+                />
+              </ul>
+
+              <ul>
+                <label htmlFor="password">PASSWORD</label>
+              </ul>
+              <ul>
+                <input
+                  type="password"
+                  placeholder="password"
+                  id="password"
+                  value={password}
+                  className="inputElement"
+                  onChange={this.onChangePassword}
+                />
+              </ul>
+
+              <button className="button" type="submit">
+                Login
+              </button>
+            </ul>
+          </ul>
+        </form>
+      </div>
     )
   }
 }

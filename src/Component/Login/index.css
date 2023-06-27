@@ -1,0 +1,43 @@
+.loginContainer {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Loginform {
+  background-color: #202020;
+  height: 40%;
+  width: 20%;
+}
+.WebsiteLogo {
+  height: 40%;
+  width: 65%;
+}
+.imageContainer {
+  margin-left: 22%;
+  padding: 20px;
+}
+.UserContainer {
+  margin-left: 50px;
+  padding: 5px;
+}
+.inputElement {
+  height: 30px;
+  width: 190px;
+  margin-top: 5px;
+  background-color: #202020;
+  color: white;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #b6c5ff;
+}
+.button {
+  height: 1.8rem;
+  width: 12rem;
+  background-color: #6366f1;
+  border-radius: 10px;
+  margin-top: 20px;
+}
