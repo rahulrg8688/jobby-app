@@ -8,7 +8,7 @@ import './index.css'
 class JobsItemDetails extends Component {
   state = {
     UpdatedJobDetails: '',
-    // skills: [],
+    skills: [],
     SimilarJobsDetails: [],
     LifeWork: '',
   }
@@ -70,7 +70,7 @@ class JobsItemDetails extends Component {
     // console.log(fetchedData)
     this.setState({
       UpdatedJobDetails: fetchedData.jobDetails,
-      //   skills: fetchedData.jobDetails.skills,
+      skills: fetchedData.jobDetails.skills,
       LifeWork: fetchedData.jobDetails.lifeAtCompany,
       SimilarJobsDetails: fetchedData.similarJobs,
     })
@@ -79,9 +79,9 @@ class JobsItemDetails extends Component {
   }
 
   render() {
-    const {UpdatedJobDetails, LifeWork, SimilarJobsDetails} = this.state
+    const {UpdatedJobDetails, LifeWork, skills, SimilarJobsDetails} = this.state
 
-    const {lifeAtCompany, skills} = UpdatedJobDetails
+    const {lifeAtCompany} = UpdatedJobDetails
     console.log(lifeAtCompany)
     console.log(skills)
     console.log(UpdatedJobDetails)
@@ -163,18 +163,18 @@ class JobsItemDetails extends Component {
               <Skills similarJobs={each} Url={companyUrl} />
             ))}
 
-            {/* /* <ul className="downSection">
-                  <ul className="similarTop">
-                    <img src={companyUrl} className="image" />
-                    <h1>{each.title}</h1>
+            {/* <ul className="downSection">
+              <ul className="similarTop">
+                <img src={companyUrl} className="image" />
+                <h1>{each.title}</h1>
 
-                    <h4>Description</h4>
-                    <p>{each.jobDescription}</p>
+                <h4>Description</h4>
+                <p>{each.jobDescription}</p>
 
-                    <p>{each.location}</p>
-                    <p>{each.employmentType}</p>
-                  </ul>
-                </ul> */}
+                <p>{each.location}</p>
+                <p>{each.employmentType}</p>
+              </ul>
+            </ul> */}
           </ul>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 import Header from '../header'
 import JobsDescription from '../jobsDescription'
 import Salary from '../salary'
@@ -44,6 +45,13 @@ const salaryRangesList = [
   },
 ]
 
+const ApistatusExtends = {
+  initial: 'INITIAl',
+  loading: 'LOADING',
+  Success: 'SUCCESS',
+  failure: 'FAILURE',
+}
+
 class jobs extends Component {
   state = {
     detailsProfile: '',
@@ -51,6 +59,7 @@ class jobs extends Component {
     EmploymentId: employmentTypesList[0].employmentTypeId,
     salaryId: salaryRangesList[0].salaryRangeId,
     searchInput: '',
+    ApiStatus: ApistatusExtends.initial,
   }
 
   componentDidMount() {
@@ -78,7 +87,10 @@ class jobs extends Component {
         bio: data.profile_details.short_bio,
       }
       console.log(ProfileDetails)
-      this.setState({detailsProfile: ProfileDetails})
+      this.setState({
+        detailsProfile: ProfileDetails,
+        ApiStatus: ApistatusExtends.Success,
+      })
     }
   }
 
@@ -87,9 +99,9 @@ class jobs extends Component {
     console.log(detailsProfile)
     const {name, profileImage, bio} = detailsProfile
     return (
-      <div>
+      <div className="profile">
         <h4>{name}</h4>
-        <img src={profileImage} alt={name} />
+        <img src={profileImage} alt={name} className="imagePro" />
         <p>{bio}</p>
       </div>
     )
@@ -97,7 +109,7 @@ class jobs extends Component {
 
   renderDescriptionDetails = async () => {
     const {EmploymentId, salaryId} = this.state
-
+    this.setState({ApiStatus: ApistatusExtends.loading})
     const JwtToken = Cookies.get('jwt_token')
     const Url = ` https://apis.ccbp.in/jobs?employment_type=${EmploymentId}&minimum_package=${salaryId}`
     console.log(`Token${JwtToken}`)
@@ -125,8 +137,14 @@ class jobs extends Component {
       }))
 
       console.log(fetchedData)
-      this.setState({JobsDetails: fetchedData})
+      this.setState({
+        JobsDetails: fetchedData,
+        ApiStatus: ApistatusExtends.Success,
+      })
+    } else {
+      this.setState({ApiStatus: ApistatusExtends.failure})
     }
+    // this.setState({ApiStatus: ApistatusExtends.failure})
   }
 
   renderSuccessView = () => {
@@ -140,15 +158,17 @@ class jobs extends Component {
     if (filteredData.length === 0) {
       return (
         <div className="bg">
-          <h1>No Jobs found </h1>
+          <h1 className="heading">No Jobs found </h1>
         </div>
       )
     }
 
     return (
       <div>
-        {filteredData.map(each => (
-          <JobsDescription JobDetails={each} key={each.id} />
+        {filteredData.map(JobItems => (
+          <ul className="JobsContainer">
+            <JobsDescription JobDetails={JobItems} key={JobItems.id} />
+          </ul>
         ))}
       </div>
     )
@@ -180,6 +200,44 @@ class jobs extends Component {
     this.setState({searchInput: event.target.value})
   }
 
+  renderLoading = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="red" height="50" width="50" />
+    </div>
+  )
+
+  renderFailure = () => (
+    <div>
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+      />
+      <div>
+        <h1>Some thing went wrong</h1>
+        <p>we cannot find the page you are looking for</p>
+      </div>
+    </div>
+  )
+
+  Api = () => {
+    const {ApiStatus} = this.state
+    console.log(ApiStatus)
+    console.log(ApistatusExtends.Success)
+
+    switch (ApiStatus) {
+      case ApistatusExtends.Success:
+        return this.renderSuccessView()
+
+      case ApistatusExtends.loading:
+        return this.renderLoading()
+
+      case ApistatusExtends.failure:
+        return this.renderFailure()
+      default:
+        return null
+    }
+  }
+
   render() {
     const {EmploymentId, searchInput, JobsDetails} = this.state
     console.log(searchInput)
@@ -189,19 +247,24 @@ class jobs extends Component {
     return (
       <div>
         <Header />
-        <ul className="InputSearch">
-          <input
-            type="search"
-            className="InputClass"
-            onChange={this.onChangeInput}
-          />
-        </ul>
+
         <div className="top_container">
           <ul className="profile_container">
             {this.renderProfileDetails()}
+            <hr />
             <ul>{this.salaryUpdates()}</ul>
           </ul>
-          {this.renderSuccessView()}
+          <ul className="JobsContainer">
+            <ul className="InputSearch">
+              <input
+                type="search"
+                className="InputClass"
+                onChange={this.onChangeInput}
+              />
+            </ul>
+            {this.Api()}
+            {/* {this.renderSuccessView()} */}
+          </ul>
         </div>
       </div>
     )
