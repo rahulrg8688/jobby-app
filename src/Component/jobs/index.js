@@ -138,7 +138,11 @@ class jobs extends Component {
     )
     console.log(filteredData)
     if (filteredData.length === 0) {
-      return <h1>Not found</h1>
+      return (
+        <div className="bg">
+          <h1>No Jobs found </h1>
+        </div>
+      )
     }
 
     return (
