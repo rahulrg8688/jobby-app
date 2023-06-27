@@ -1,0 +1,15 @@
+.top_container {
+  display: flex;
+}
+/* }
+.profile_container {
+  width: 100%;
+} */
+.InputSearch {
+  text-align: center;
+}
+.InputClass {
+  height: 40px;
+  width: 300px;
+  margin: 10px;
+}

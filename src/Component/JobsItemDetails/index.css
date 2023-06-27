@@ -1,0 +1,62 @@
+.bg_container {
+  background-color: black;
+  padding: 10px;
+  color: white;
+  height: 300vh;
+}
+.TopSection {
+  background-color: #202020;
+  margin: 20px;
+  padding: 20px;
+}
+.Name_container {
+  display: flex;
+}
+.salary {
+  display: flex;
+}
+.income {
+  margin-left: auto;
+}
+.Description {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.heading {
+  padding-bottom: 15px;
+}
+.skillsPara {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.skills {
+  display: flex;
+  margin: 50px;
+}
+.image {
+  height: 80px;
+  width: 80px;
+}
+.skillsContainer {
+  display: flex;
+
+  flex-wrap: wrap;
+}
+.CompanyList {
+  display: flex;
+}
+
+.similarProductsSection {
+  /* background-color: yellow; */
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+}
+.similarTop {
+  display: flex;
+  /* background-color: red; */
+  flex-direction: column;
+}
+.down {
+  display: flex;
+}

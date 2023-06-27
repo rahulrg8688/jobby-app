@@ -1,0 +1,14 @@
+.similarProducts {
+  background-color: #202020;
+
+  width: 300px;
+  margin: 20px;
+  padding: 17px;
+}
+.downSection {
+  display: flex;
+  /* flex-direction: row; */
+}
+.location {
+  margin: 10px;
+}
